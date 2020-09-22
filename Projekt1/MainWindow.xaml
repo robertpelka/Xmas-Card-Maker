@@ -1,0 +1,49 @@
+﻿<Window x:Class="Projekt1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Projekt1"
+        mc:Ignorable="d"
+        Title="Xmas Card Maker" 
+        Height="508" 
+        Width="800"
+        ResizeMode="CanMinimize"
+        Icon="icon.ico">
+    <Grid Margin="0,0,2,0">
+        <Button Content="Otwórz" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <Image Name="podglad" Source="dropHere.png"  HorizontalAlignment="Left" Height="412" Margin="10,48,0,0" VerticalAlignment="Top" Width="650" AllowDrop="True" DragOver="Image_DragEnter" Drop="Image_Drop" />
+        <TextBox Name="textBox1" IsReadOnly="True" HorizontalAlignment="Left" Height="20" Margin="90,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="688" RenderTransformOrigin="-0.533,-5.826"/>
+        <Button Name="addButton" Content="Dodaj" HorizontalAlignment="Left" Margin="668,401,0,0" VerticalAlignment="Top" Width="110" RenderTransformOrigin="0.5,0.425" Click="Button_Click_1" IsEnabled="False" Height="34"/>
+        <Button Content="Zapisz jako..." HorizontalAlignment="Left" Margin="668,440,0,0" VerticalAlignment="Top" Width="110" RenderTransformOrigin="0.5,0.425" Click="Save_Button_Click" />
+        <ComboBox x:Name="stringTypes" HorizontalAlignment="Left" Margin="668,74,0,0" VerticalAlignment="Top" Width="110" SelectionChanged="ComboBox_SelectionChanged">
+            <ComboBoxItem IsSelected="True">Prosty</ComboBoxItem>
+            <ComboBoxItem>Z prezentami</ComboBoxItem>
+            <ComboBoxItem>Z mikołajem</ComboBoxItem>
+            <ComboBoxItem>Z dzwonkami</ComboBoxItem>
+            <ComboBoxItem>Z saniami</ComboBoxItem>
+        </ComboBox>
+        <Label Content="Rodzaj napisu:" HorizontalAlignment="Left" Margin="667,48,0,0" VerticalAlignment="Top"/>
+        <Label Content="Położenie pionowe:" HorizontalAlignment="Left" Margin="665,101,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="vertAlignBox" HorizontalAlignment="Left" Margin="668,127,0,0" VerticalAlignment="Top" Width="110" SelectionChanged="ComboBox_SelectionChanged_1">
+            <ComboBoxItem IsSelected="True">Góra</ComboBoxItem>
+            <ComboBoxItem>Środek</ComboBoxItem>
+            <ComboBoxItem>Dół</ComboBoxItem>
+        </ComboBox>
+        <Label Content="Położenie poziome:" HorizontalAlignment="Left" Margin="665,154,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="horiAlignBox" HorizontalAlignment="Left" Margin="668,180,0,0" VerticalAlignment="Top" Width="110" SelectionChanged="horiAlignBox_SelectionChanged">
+            <ComboBoxItem>Lewo</ComboBoxItem>
+            <ComboBoxItem IsSelected="True">Środek</ComboBoxItem>
+            <ComboBoxItem>Prawo</ComboBoxItem>
+        </ComboBox>
+        <Slider Name="sizeSlider" Minimum="10" Maximum="100" TickPlacement="BottomRight" TickFrequency="10" IsSnapToTickEnabled="True" HorizontalAlignment="Left" Margin="665,233,0,0" VerticalAlignment="Top" Width="72" Value="100" ValueChanged="sizeSlider_ValueChanged"/>
+        <Label Content="Wielkość:" HorizontalAlignment="Left" Margin="665,207,0,0" VerticalAlignment="Top"/>
+        <TextBox IsReadOnly="True" Text="{Binding Value, ElementName=sizeSlider, StringFormat={}{0:0}%}" HorizontalAlignment="Left" Margin="742,233,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="36"/>
+        <ListBox Name="listBoxOsoby" SelectedIndex="0" HorizontalAlignment="Left" Height="54" Margin="668,307,0,0" VerticalAlignment="Top" Width="110" SelectionChanged="listBoxOsoby_SelectionChanged"/>
+        <Label Content="Życzy:" HorizontalAlignment="Left" Margin="665,276,0,0" VerticalAlignment="Top"/>
+        <Separator HorizontalAlignment="Left" Height="100" Margin="668,221,0,0" VerticalAlignment="Top" Width="110" RenderTransformOrigin="0.509,0.5"/>
+        <TextBox Name="nowaOsobaBox" KeyDown="OnKeyDown" HorizontalAlignment="Left" Height="21" Margin="668,366,0,0" TextWrapping="Wrap" Text="Dodaj..." VerticalAlignment="Top" Width="91" GotFocus="nowaOsobaBox_GotFocus"/>
+        <Button Content="▶" HorizontalAlignment="Left" Margin="757,366,0,0" VerticalAlignment="Top" Width="21" Height="21" BorderBrush="#FFABADB3" Click="Button_Click_2"/>
+        <CheckBox Content="" HorizontalAlignment="Left" Margin="762,283,0,0" VerticalAlignment="Top" Width="16" IsChecked="True" Unchecked="CheckBox_Unchecked" Checked="CheckBox_Checked"/>
+    </Grid>
+</Window>
